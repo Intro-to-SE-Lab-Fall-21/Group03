@@ -1,7 +1,9 @@
 {
     "_meta": {
         "hash": {
+
             "sha256": "4809dece3d72536deffa1b61c2785cf132795db9d5d4df1b9ce408bbee4daa37"
+
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +18,7 @@
         ]
     },
     "default": {
+
         "alembic": {
             "hashes": [
                 "sha256:035ab00497217628bf5d0be82d664d8713ab13d37b630084da8e1f98facf4dbf"
@@ -546,6 +549,7 @@
             ],
             "index": "pypi",
             "version": "==2.3.1"
+
         }
     },
     "develop": {}
