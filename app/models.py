@@ -7,7 +7,7 @@ class User(db.Model):
     id                 = db.Column(db.Integer(), primary_key=True)
     username           = db.Column(db.String(64), unique=True, nullable=False)
     email              = db.Column(db.String(64), unique=True, index=True, nullable=False)
-    
+    password_hash      = db.Column(db.String(255), nullable=False)
     
     def __init__(self, username="", email="", password=""):
         self.username         = username
@@ -27,3 +27,9 @@ class User(db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    def is_authenticated(self):
+        return not  "" == self.username
+
+    def is_anonymous(self):
+        return "" == self.username
