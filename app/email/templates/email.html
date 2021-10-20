@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ item.title }} - {% endblock %}
+{% block title %}{{ email_subject }} - {% endblock %}
 
 {% block content %}
+<br><br><br><br>
 <div class="row">
   <div class="col-lg-9">
     <div class="card mt-4">
+      <div class="embed-responsive embed-responsive-16by9">
+      </div>
       <div class="card-body">
-        <h3 class="card-title">{{ email.subject }}</h3>
-        <h4>{{ email.uid}}</h4>
-        <p class="card-text">{{ email.body }}</p>
+        <h3 class="card-title">{{ sender_email }}</h3>
+        <h3 class="card-title">{{ email_subject }}</h3>
+        <p class="card-text">{{ email_body }}</p>
       </div>
     </div>
   </div>
 </div>
+
 {% endblock %}
