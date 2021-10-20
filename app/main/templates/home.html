@@ -4,18 +4,33 @@
 {% block content %}
 
 {% if current_user.is_authenticated() %}
-  {{ current_user.username }}<br>
-  {{ current_user.description }}
-
-  <h2>Users from the db:</h2>
-  {% if users %}
-  {% for user in users %}
-    {{ user.username }} {{ user.email }}
-    {% if current_user.id == user.id %}
-    <- this is the currently logged in user
-    {% endif %}<br>
-  {% endfor %}
-  {% endif %}
+<br><br><br>
+<div class="border-end bg-white" id="sidebar-wrapper">
+  <div class="sidebar-heading border-bottom bg-light">Actions</div>
+  <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{url_for('email.compose')}}">New Email</a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">Sent Items</a>
+  </div>
+</div>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+      <h1 class="mt-4">Inbox</h1>
+      {% if emails%}
+      {%for email in emails %}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">{{ email.subject }}</a>
+            </h4>
+            <p class="card-text">{{ email.body }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+  </div>
+</div>
 {% else %}
   {% include 'home/_landing.html' %}
 {% endif %}
