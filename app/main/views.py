@@ -23,11 +23,8 @@ def home():
 		if form.subject.data.strip():
 			search_subject  = form.subject.data
 			search_subject = "%" + search_subject +"%"
-			print(type(search_subject))
 			emails = db.session.query(Email).filter(Email.subject.like(search_subject),Email.uid.like(user_id)).all()
-			print(emails)
-
-	
+			
 	return render_template('home.html', emails=emails,form=form)
 
 
