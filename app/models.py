@@ -39,10 +39,10 @@ class Email(db.Model):
     __tablename__ = "emails"
 
     id                  = db.Column(db.Integer(), primary_key=True)
-    recipient           = db.Column(db.String(64), unique=True, nullable=False)
-    subject             = db.Column(db.String(64), unique=True, index=True, nullable=False)
+    recipient           = db.Column(db.String(64), nullable=False)
+    subject             = db.Column(db.String(64), index=True, nullable=False)
     body                = db.Column(db.String(255), nullable=False)
-    uid                 = db.Column(db.Integer(),unique=True,nullable=False)
+    uid                 = db.Column(db.Integer(), nullable=False)
 
     def __init__(self, recipient="", subject="", body="",uid=0):
         self.recipient      = recipient
