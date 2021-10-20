@@ -1,11 +1,8 @@
 from flask_wtf import FlaskForm
-from flask import session,g
-from wtforms.fields import StringField, PasswordField, SubmitField, BooleanField, RadioField, TextAreaField
+from wtforms.fields import StringField,SubmitField,FileField
 from wtforms.fields.core import IntegerField
 from wtforms.fields.html5 import EmailField
-from wtforms.validators import InputRequired, DataRequired, EqualTo, Length, ValidationError, Email
-from app.models import User
-from werkzeug.local import LocalProxy
+from wtforms.validators import InputRequired, DataRequired, Length, Email
         
 
 
@@ -29,6 +26,7 @@ class CompositionForm(FlaskForm):
                                         DataRequired("Data is required!"),
                                         Length(min=10, max=255, message="Body must be between 10 and 255 characters long"),
                                     ])
+    file                = FileField()
     uid                 = IntegerField(0)
     submit              =  SubmitField("Send")
 

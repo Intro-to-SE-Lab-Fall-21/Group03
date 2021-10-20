@@ -2,6 +2,9 @@ import os
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = '/app/uploads'
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 db = SQLAlchemy()
@@ -14,6 +17,7 @@ def create_app():
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
         DEBUG=True
     )
+    app.config['UPLOAD_FOLDER'] = os.path.join(basedir,"/app/uploads")
 
     db.init_app(app)
 
