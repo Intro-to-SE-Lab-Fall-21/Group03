@@ -1,0 +1,26 @@
+<main role="main">
+    <div class="jumbotron landing-jumbotron" style="background: url('{{ url_for('static', filename='images/landing_plants.png') }}')  center center;background-size: cover;">
+      <div class="container landing-box">
+        <h1 class="display-3 landing-text">Welcome to Snail Mail</h1>
+        <p>Snail Mail is for those people who don't actually want to respond to their emails.(Yet...)Sign up today!</p>
+        <p style="padding-bottom: 2rem"></p>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-1">
+          <h2>Need to get to answer your collegues?</h2>
+          <p>Look no further.Join the website and get emailing.</p>
+          <p><a class="btn btn-secondary" href="{{ url_for('auth.register') }}" role="button">New Email »</a></p>
+        </div>
+        <div class="col-md-4 offset-md-2">
+          <h2>Doing some light reading of the business memo variety?</h2>
+          <p>How intelligent of you. Join your co-workers.</p>
+          <p><a class="btn btn-secondary" href="{{ url_for('auth.register') }}" role="button">Access Inbox »</a></p>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </main>
+  
