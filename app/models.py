@@ -42,10 +42,12 @@ class Email(db.Model):
     recipient           = db.Column(db.String(64), nullable=False)
     subject             = db.Column(db.String(64), index=True, nullable=False)
     body                = db.Column(db.String(255), nullable=False)
+    filename            = db.Column(db.String(64),nullable=True)
     uid                 = db.Column(db.Integer(), nullable=False)
 
-    def __init__(self, recipient="", subject="", body="",uid=0):
+    def __init__(self, recipient="", subject="", body="",filename = "",uid=0):
         self.recipient      = recipient
         self.subject        = subject
         self.body           = body
+        self.filename       = filename
         self.uid            = uid

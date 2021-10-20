@@ -4,10 +4,11 @@
 {% set active_page = 'email' %}
 
 {% block content %}
+<br>
 <div class="row">
   <div class="col-lg-7 offset-lg-2 my-5">
     <h1>New Email</h1><hr>
-    <form method="POST" action="{{ url_for('email.compose') }}">
+    <form method="POST" enctype = "multipart/form-data"  action ="{{ url_for('email.compose') }}">
       {{ form.csrf_token }}
       {{ error_messages(form.errors) }}
       <div class="form-group">
@@ -24,6 +25,11 @@
         {{ form.body.label }}
         {{ form.body(class="form-control") }}
         {{ field_error_messages(form.body) }}
+      </div>
+      <br>
+      <div class="form-group">
+        {{ form.hidden_tag() }}
+        {{ form.file }}
       </div>
       <hr>
       <div class="form-group">
