@@ -30,4 +30,7 @@ class CompositionForm(FlaskForm):
     uid                 = IntegerField(0)
     submit              =  SubmitField("Send")
 
+class DeleteForm(FlaskForm):
+    submit              = SubmitField("Delete item")
+
 
